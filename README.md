@@ -1,16 +1,35 @@
-# React + Vite
+# Mastering React Performance 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A hands-on repository demonstrating the hidden traps of React memoization and lifecycles. 
 
-Currently, two official plugins are available:
+This project goes beyond the basic definitions of React's performance hooks. It provides concrete, interactive examples of how to correctly optimize CPU-heavy tasks, preserve memory references, and prevent browser crashes caused by memory leaks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🧠 What You Will Learn
 
-## React Compiler
+This repository contains isolated examples demonstrating four critical React concepts:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **The Ghost in the Machine (`useEffect` Cleanups):** How to properly tear down global event listeners (like window resizing) to prevent catastrophic memory leaks when components unmount.
+2. **The Premature Optimization Trap (`React.memo`):** Understanding when wrapping a component in `React.memo` actually makes your application *slower*, and when it is absolutely necessary.
+3. **Escaping the Computation Trap (`useMemo`):** Using a custom, CPU-heavy `Factorial` class to demonstrate how to cache expensive math operations so they survive unrelated state changes (like toggling a dark mode theme).
+4. **Escaping the Reference Trap (`useCallback`):** How JavaScript memory allocation breaks `React.memo`, and how to freeze a function's memory address to protect heavily optimized child components.
 
-## Expanding the ESLint configuration
+## 🛠️ How to Use This Repo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The best way to understand these concepts is to intentionally break them. 
+
+1. **Clone the repo:** `git clone <your-repo-url>`
+2. **Install dependencies:** `npm install`
+3. **Run the app:** `npm start` (or `npm run dev`)
+4. **Experiment:** Open your React DevTools Profiler. Try removing the `useCallback` wrapper from the child prop, or the `useMemo` from the factorial calculation, and watch how the components behave when you toggle the theme state. 
+
+## 📌 The Cheat Sheet
+
+Whenever you are unsure which hook to reach for, remember these caching rules:
+
+* **`useEffect` return:** Caches nothing. Destroys background processes.
+* **`useMemo`:** Caches a **Value** (the result of a function).
+* **`useCallback`:** Caches a **Function Address** (the function itself).
+* **`React.memo`:** Caches a **Component's UI state** (prevents re-renders if props are identical).
+
+---
+*Created as a companion to the article: [Insert Link to Your Medium Article Here]*
