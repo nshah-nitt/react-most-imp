@@ -17,7 +17,7 @@ This repository contains isolated examples demonstrating four critical React con
 
 The best way to understand these concepts is to intentionally break them. 
 
-1. **Clone the repo:** `git clone <your-repo-url>`
+1. **Clone the repo:** `git clone https://github.com/nshah-nitt/react-most-imp.git`
 2. **Install dependencies:** `npm install`
 3. **Run the app:** `npm start` (or `npm run dev`)
 4. **Experiment:** Open your React DevTools Profiler. Try removing the `useCallback` wrapper from the child prop, or the `useMemo` from the factorial calculation, and watch how the components behave when you toggle the theme state. 
