@@ -32,4 +32,4 @@ Whenever you are unsure which hook to reach for, remember these caching rules:
 * **`React.memo`:** Caches a **Component's UI state** (prevents re-renders if props are identical).
 
 ---
-*Created as a companion to the article: [Insert Link to Your Medium Article Here]*
+*Created as a companion to the article: https://medium.com/@namanshah2275/mastering-react-performance-the-hidden-traps-of-memoization-and-lifecycles-8cbf8a4a645f?postPublishedType=repub*
